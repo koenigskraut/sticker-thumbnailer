@@ -8,11 +8,10 @@ pub fn build(b: *std.Build) void {
     const dep_webp = b.dependency("zig_webp", .{ .target = target, .optimize = optimize });
     const dep_ffmpeg = b.dependency("libffmpeg", .{ .target = target, .optimize = optimize });
 
-    const module = b.addModule("sticker-thumbnailer", .{ .source_file = .{ .path = "src/root.zig" }, .dependencies = &.{
+    _ = b.addModule("sticker-thumbnailer", .{ .source_file = .{ .path = "src/root.zig" }, .dependencies = &.{
         .{ .name = "lottie", .module = dep_rlottie.module("zig-rlottie") },
         .{ .name = "webp", .module = dep_webp.module("zig-webp") },
     } });
-    _ = module;
 
     const link = b.addStaticLibrary(.{
         .name = "linking",
@@ -23,4 +22,5 @@ pub fn build(b: *std.Build) void {
     link.linkLibrary(dep_rlottie.artifact("rlottie"));
     link.linkLibrary(dep_webp.artifact("webp"));
     link.linkLibrary(dep_ffmpeg.artifact("ffmpeg"));
+    b.installArtifact(link);
 }
