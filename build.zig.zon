@@ -1,0 +1,23 @@
+.{
+    .name = "sticker-thumbnailer",
+    .version = "0.0.0",
+    .paths = .{
+        "src/",
+        "build.zig",
+        "build.zig.zon",
+    },
+    .dependencies = .{
+        .zig_webp = .{
+            .url = "https://github.com/koenigskraut/zig-webp/archive/1358da0b9f486e5ea04c149fed4f57f70a395363.tar.gz",
+            .hash = "122072edc915633a032c53bacd9b1035d44649242b323d97a7d93dd540c607a2d7d3",
+        },
+        .rlottie = .{
+            .url = "https://github.com/koenigskraut/zig-rlottie/archive/8df1e41e9332daaa31b36185ad75a17b159a0497.tar.gz",
+            .hash = "1220cbfbb8833af9e6731a1980eaf6c9bb1d5f147780fa570b9fbd3691dd185daadc",
+        },
+        .libffmpeg = .{
+            .url = "https://github.com/koenigskraut/ffmpeg/archive/0eb31ce56fde11d386ae24f8aa38d67e5bb02655.tar.gz",
+            .hash = "12203eaf1acfc4e30b45d42ce57c9c6d58e47ab2e2949adaeda52502d7172ee21b54",
+        },
+    },
+}
